@@ -1,0 +1,38 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('imgs/sky.jpg');
+    background-repeat: no-repeat; 
+    background-size:cover;   
+    min-height: 100vh;
+}
+
+.forCol{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 90px;
+    font-weight: 800;
+    
+}
+.fIcon{
+    display: flex;
+    justify-content: space-evenly;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    font-size: 30px;
+}
+.frm{
+    color: white !important;
+}
+input::placeholder{
+    color: white !important;
+}
+
+
+.checkYour{
+    color: white;
+    font-weight: 700;
+}
