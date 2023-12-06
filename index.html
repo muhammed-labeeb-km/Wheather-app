@@ -36,7 +36,7 @@
         <span class=" text-white fw-bold" id="wthr"></span>
        </div>
        <div class="checkYour text-center fs-3 pt-5">Need to know your current temperature?</div>
-       <div class="text-center text-light fw-bolder"><button class="btn mt-4 bg-transparent shadow-lg">Click Here</button></div>
+       <div class="text-center text-light fw-bolder"><button class="btn mt-4 bg-transparent shadow-lg" onclick="getLocation()">Click Here</button></div>
     </div>
 </body>
 <script>
@@ -84,5 +84,29 @@
         descr = dataArray.weather[0].description;
         wthr.innerHTML = descr;
     }
+
+
+    const x = document.getElementById("sthalam");
+
+    function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    sthalam.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  lat=position.coords.latitude
+  lon= position.coords.longitude
+  findLocation(lat,lon)
+}
+
+function findLocation(lat,lon){
+    const apiUrl=`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=5b4bee0ba241d092159faf007e166080`
+    fetch(apiUrl).then((a)=>a.json())
+    .then(obj=>displayData(obj))
+}
+
 </script>
 </html>
